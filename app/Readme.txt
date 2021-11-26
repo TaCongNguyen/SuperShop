@@ -1,0 +1,1 @@
+htacccess: chuyển hướng người dùng về lại trang chủ dù có gõ bậy
