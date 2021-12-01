@@ -1,3 +1,4 @@
+<?php require('connect.php');?>
 <?php $this->view("header",$data); ?>
 
 	<section>
@@ -64,26 +65,81 @@
 						<div class="socials-share">
 							<a href=""><img src="images/blog/socials.png" alt=""></a>
 						</div><!--/socials-share-->
-
-						<div class="media commnets">
-							<a class="pull-left" href="#">
-								<img class="media-object" src="images/blog/man-one.jpg" alt="">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">Annie Davis</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								<div class="blog-socials">
-									<ul>
-										<li><a href=""><i class="fa fa-facebook"></i></a></li>
-										<li><a href=""><i class="fa fa-twitter"></i></a></li>
-										<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-										<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-									
+						<div>	
+							<div class="panel panel-default">
+							<div class="panel-heading">Đăng bình luận</div>
+							<div class="panel-body">
+								<form method="post">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Tên</label>
+									<input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Email </label>
+									<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Nội dung</label>
+									<textarea name="subject" class="form-control" rows="3"></textarea>
+								</div>
+								<button type="submit" class="btn btn-primary">Đăng</button>
+								</form>
+							</div>
+							</div>
+						
+						</div>
+					<!--Comments-->
+					<?php
+					if(isset($_POST) & !empty($_POST)){
+						$name = mysqli_real_escape_string($connection, $_POST['name']);
+						$email = mysqli_real_escape_string($connection, $_POST['email']);
+						$subject = mysqli_real_escape_string($connection, $_POST['subject']);
+					 
+						$isql = "INSERT INTO comments (name, email, subject, status) VALUES ('$name', '$email', '$subject', 'draft')";
+						$ires = mysqli_query($connection, $isql) or die(mysqli_error($connection));
+						if($ires){
+							$smsg = "Bình luận đã được đăng";
+						}else{
+							$fmsg = "Thất bại";
+						}
+					 
+					}
+					?>
+					<?php if(isset($smsg)){ ?><div class="alert alert-success" role="alert"> <?php echo $smsg; ?> </div><?php } ?>
+					<?php if(isset($fmsg)){ ?><div class="alert alert-danger" role="alert"> <?php echo $fmsg; ?> </div><?php } ?>
+			 
+					
+					<div class="col">
+				
+						<div class="panel panel-default">
+						<div class="panel-heading">Bình luận</div>
+						<div class="panel-body">
+						<?php 
+							$comsql = "SELECT * FROM comments ";
+							$comres = mysqli_query($connection, $comsql);
+							while($comr = mysqli_fetch_assoc($comres)){
+								$hash = md5( strtolower( trim( $comr['email'] ) ) );
+								$size = 50;
+								$grav_url = "https://www.gravatar.com/avatar/" . $hash . "?s=" . $size;
+						?>
+							<div class="row">
+								<div class="col-md-3">
+									<img src="<?php echo $grav_url; ?>">
+								</div>
+								<div class="col-md-9">
+									<p><strong><?php echo $comr['name']; ?></strong> </p>
+									<p><?php echo $comr['submittime'] ?></p>
+									<p><?php echo $comr['subject']; ?></p>
 								</div>
 							</div>
-						</div><!--Comments-->
-			 
+							<br>
+							<?php } ?>
+						</div>
+						</div>
+					
+					
+					</div>
+
 					<?php else:?>
 
 						<div class="status alert alert-danger" style="font-size: 18px;text-align: center;">Không tìm thấy bài </div>
@@ -93,6 +149,11 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 <?php $this->view("footer",$data); ?>
+
+
+
+
+

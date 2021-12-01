@@ -61,15 +61,17 @@
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->
-					
+				
     	
 				<!--end product-->
 				<?php else: ?>
 					<div style="padding: 1em;background-color: grey;color:white;margin:1em;text-align: center;"><h2>That product was not found</h2></div>
 				<?php endif; ?>
-				</div>
-
+				</div>	
+				
 			</div>
+			
+			
 		</div>
 	</section>
 

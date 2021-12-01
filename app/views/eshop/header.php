@@ -13,6 +13,7 @@
     <link href="<?= ASSETS . THEME ?>css/animate.css" rel="stylesheet">
 	<link href="<?= ASSETS . THEME ?>css/main.css" rel="stylesheet">
 	<link href="<?= ASSETS . THEME ?>css/responsive.css" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/comments.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="<?= ASSETS . THEME ?>js/html5shiv.js"></script>
     <script src="<?= ASSETS . THEME ?>js/respond.min.js"></script>

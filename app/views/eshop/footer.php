@@ -28,7 +28,7 @@
 						<div class="single-widget">
 							<h2>Dịch vụ</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Hỗ trợ</a></li>
+								<li><a href="<?=ROOT?>displaycomments">Hỗ trợ</a></li>
 								<li><a href="#">Liên hệ</a></li>
 								<li><a href="#"></a></li>
 								<li><a href="#">FAQ’s</a></li>
