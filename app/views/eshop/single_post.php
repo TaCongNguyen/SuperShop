@@ -1,3 +1,21 @@
+<?php
+
+$start = memory_get_usage();
+$startTime = microtime(true);
+require 'CSRF.php';
+$ss = CSRF::init();
+
+if (empty($_POST)) {
+    $ss->validate();
+}
+$endTime = (round(microtime(true) - $startTime, 5));
+echo '<pre>';
+echo 'Memory Usaged: ', (memory_get_usage() - $start) / 1024, 'KB <br/>';
+echo 'Timeline: ', $endTime, 'seconds' ,'<br/>' ;
+echo  'token ẩn:', $ss->getToken();
+echo '</pre>';
+
+?>
 <?php require('connect.php');?>
 <?php $this->view("header",$data); ?>
 
@@ -99,6 +117,7 @@
 						$ires = mysqli_query($connection, $isql) or die(mysqli_error($connection));
 						if($ires){
 							$smsg = "Bình luận đã được đăng";
+							
 						}else{
 							$fmsg = "Thất bại";
 						}
@@ -127,9 +146,9 @@
 									<img src="<?php echo $grav_url; ?>">
 								</div>
 								<div class="col-md-9">
-									<p><strong><?php echo $comr['name']; ?></strong> </p>
-									<p><?php echo $comr['submittime'] ?></p>
-									<p><?php echo $comr['subject']; ?></p>
+									<p><strong><?php echo htmlspecialchars($comr['name'], ENT_QUOTES, 'UTF-8'); ?></strong> </p>
+									<p><?php  echo htmlspecialchars($comr['submittime'], ENT_QUOTES, 'UTF-8');?></p>
+									<p><?php  echo htmlspecialchars($comr['subject'], ENT_QUOTES, 'UTF-8'); ?></p>
 								</div>
 							</div>
 							<br>
