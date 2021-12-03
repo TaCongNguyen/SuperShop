@@ -1,3 +1,19 @@
+<?php
+
+$start = memory_get_usage();
+$startTime = microtime(true);
+require 'CSRF.php';
+$ss = CSRF::init();
+
+if (empty($_POST)) {
+    $ss->validate();
+}
+$endTime = (round(microtime(true) - $startTime, 5));
+#echo '<pre>';
+#echo  'Token ẩn:', $ss->getToken();
+#echo '</pre>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +42,7 @@
   </head>
 
   <body>
-
+  
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS

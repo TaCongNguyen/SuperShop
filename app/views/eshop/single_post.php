@@ -1,21 +1,4 @@
-<?php
 
-$start = memory_get_usage();
-$startTime = microtime(true);
-require 'CSRF.php';
-$ss = CSRF::init();
-
-if (empty($_POST)) {
-    $ss->validate();
-}
-$endTime = (round(microtime(true) - $startTime, 5));
-echo '<pre>';
-echo 'Memory Usaged: ', (memory_get_usage() - $start) / 1024, 'KB <br/>';
-echo 'Timeline: ', $endTime, 'seconds' ,'<br/>' ;
-echo  'token ẩn:', $ss->getToken();
-echo '</pre>';
-
-?>
 <?php require('connect.php');?>
 <?php $this->view("header",$data); ?>
 

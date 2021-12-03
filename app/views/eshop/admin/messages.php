@@ -29,7 +29,7 @@
 			<?php if(isset($messages) && is_array($messages)):?>
 				<?php foreach($messages as $message):?>
 
-					<tr style="position: relative;"><td><?=$message->name?></td><td><?=$message->subject?></td><td><?=$message->email?></td><td><?=$message->message?></td><td><?=date("jS M Y H:i a",strtotime($message->date))?></td>
+					<tr style="position: relative;"><td><?=htmlspecialchars($message->name)?></td><td><?=htmlspecialchars($message->subject)?></td><td><?=htmlspecialchars($message->email)?></td><td><?=htmlspecialchars($message->message)?></td><td><?=date("jS M Y H:i a",strtotime($message->date))?></td>
 	 
 						<td>
 							<a href="<?=ROOT?>admin/messages?delete=<?=$message->id?>">
@@ -60,7 +60,7 @@
 			</thead>
 			<tbody>
 
-				<tr style="position: relative;"><td><?=$messages->name?></td><td><?=$messages->subject?></td><td><?=$messages->email?></td><td><?=$messages->message?></td><td><?=date("jS M Y H:i a",strtotime($messages->date))?></td>
+				<tr style="position: relative;"><td><?=htmlspecialchars($messages->name)?></td><td><?=htmlspecialchars($messages->subject)?></td><td><?=htmlspecialchars($messages->email)?></td><td><?=htmlspecialchars($messages->message)?></td><td><?=date("jS M Y H:i a",strtotime($messages->date))?></td>
 				</tr>
 				<a href="<?=ROOT?>admin/messages?delete_confirmed=<?=$messages->id?>">
 				<input type="button" class="btn btn-warning pull-right" value="Xoá"/>

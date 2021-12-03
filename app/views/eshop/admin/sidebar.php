@@ -60,13 +60,7 @@
                       </a>
                   
                   </li>
-                  <li class="sub-menu">
-                      <a <?=(isset($current_page) && $current_page == "viewcomments") ? ' class="active" ':''; ?> href="<?=ROOT?>admin/viewcomments" >
-                          <i class="fa fa-email-o"></i>
-                          <span>Bình luận </span>
-                      </a>
                   
-                  </li>
 
                   <li class="sub-menu">
                       <a <?=(isset($current_page) && $current_page == "settings") ? ' class="active" ':''; ?> href="<?=ROOT?>admin/settings" >

@@ -59,7 +59,7 @@
                        	 				<tr>
                        	 					<th>Mô tả</th>
                        	 					<td>
-                       	 						<input value="<?php Search::get_sticky('textbox','description')?>" autofocus="true" type="text" class="form-control" name="description" placeholder="Type what to search for">
+                       	 						<input value="<?php Search::get_sticky('textbox','description')?>" autofocus="true" type="text" class="form-control" name="description" placeholder="Nhập tên">
                        	 					</td>
                        	 					<th>Loại hàng</th>
                        	 					<td>
@@ -99,7 +99,7 @@
                        	 				</tr>
                        	 			 
                        	 				<tr>
-                       	 					<th>Namew</th>
+                       	 					<th>Năm</th>
                        	 					<td>
                        	 						<select class="form-control" name="year">
                        	 							<option>--Chọn năm--</option>
@@ -108,7 +108,7 @@
                        	 						</select>
                        	 					</td>
                        	 				</tr>
- 																<tr><td colspan="4"><input type="submit" name="search" value="Search" class="btn btn-success pull-right"></td></tr>
+ 																<tr><td colspan="4"><input type="submit" name="search" value="Tìm" class="btn btn-success pull-right"></td></tr>
                       	 		</table>
                       	 </form>
                       	 	
