@@ -11,6 +11,8 @@ if (empty($_POST)) {
 $endTime = (round(microtime(true) - $startTime, 5));
 echo '<pre>';
 echo  'Token ẩn:', $ss->getToken();
+echo '<br>';
+echo  'Cookie:', $ss->getCookie();
 echo '</pre>';
 
 ?>

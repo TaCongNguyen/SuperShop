@@ -3,18 +3,18 @@
 define("WEBSITE_TITLE", 'SUPER SHOP');
 
 //ten database 
-if($_SERVER['SERVER_NAME'] == "localhost")
+if($_SERVER['SERVER_NAME'] == "localhost"||$_SERVER['SERVER_NAME'] == "supershop.local")
 {
 	define('DB_NAME', "eshop_db");
-	define('DB_USER', "root");
-	define('DB_PASS', "");
+	define('DB_USER', "nguyen");
+	define('DB_PASS', "123456");
 	define('DB_TYPE', "mysql");
 	define('DB_HOST', "localhost");	
 }else
 {
 	define('DB_NAME', "eshop_db");
 	define('DB_USER', "root");
-	define('DB_PASS', "");
+	define('DB_PASS', "root");
 	define('DB_TYPE', "mysql");
 	define('DB_HOST', "localhost");
 }

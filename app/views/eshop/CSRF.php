@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thanhtai
- * Date: 08/06/2018
- * Time: 17:43
- */
+
 
 class CSRF
 {

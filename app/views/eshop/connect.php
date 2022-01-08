@@ -1,5 +1,5 @@
 <?php
-	$connection = mysqli_connect('localhost', 'root', '', 'eshop_db');
+	$connection = mysqli_connect('supershop.local', 'nguyen', '123456', 'eshop_db');
  
 	if(!$connection){
 		echo "Error: Unable to connect to MySQL." . PHP_EOL;
